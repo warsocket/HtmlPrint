@@ -1,0 +1,117 @@
+:root{
+    --margin: 4mm;
+    --color: 4mm;
+}
+
+*{
+/*  margin: 0px;*/
+/*  padding: 0px;*/
+    font-family: sans-serif;
+    box-sizing: border-box;
+    page-break-inside: avoid;
+}
+body, html{
+    margin: 0px;
+    padding: 0px;
+}
+
+@page:first{
+    @bottom-center {
+        content: "";
+    }
+    counter-increment: p 0;
+
+}
+
+@page{
+    size: A4;
+    margin: 2cm;
+
+    counter-increment: p;
+
+    @bottom-center {
+        content: counter(p);
+    }
+
+
+/*    counter-increment: pagina;*/
+}
+
+p{
+    margin-top: var(--margin);
+    margin-bottom: var(--margin);
+}
+li{
+    margin-top: var(--margin);
+    margin-bottom: var(--margin);
+}
+
+section{
+/*    page-break-after: always;*/
+    page-break-inside: auto;
+/*    outline: 1px solid red;*/
+}
+
+section.title{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+/*    align-content: flex-end;*/
+/*    height: 297mm;*/
+
+/*    background-color: yellow;*/
+}
+
+section.title *{
+    text-align: center;
+    margin: 0.5cm;
+}
+
+section.title > h1{
+    margin: 1.5cm;
+    padding-top: 10cm;
+    font-size: 200%;
+}
+
+h2{
+    page-break-before: always;
+    counter-increment: chapter;
+    counter-reset: subchapter;
+}
+h2:before{
+    content: counter(chapter) " ";
+}
+
+
+
+h3{
+    counter-increment: subchapter;
+}
+h3:before{
+    content: counter(chapter) "." counter(subchapter) " ";
+}
+
+
+@media screen{
+    body{
+        margin: 2cm;
+    }
+
+    button{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        padding: 5mm;
+    }
+
+}
+
+@media print{
+
+    button{
+        display: none;
+    }
+
+}

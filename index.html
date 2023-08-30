@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="document.css">
+	<link rel="stylesheet" type="text/css" href="sheet.css">
+	<script type="text/javascript" src="sheet.js"></script>
+</head>
+<body>
+
+
+<section class="title">
+	<h1>My Document</h1>
+	<div>A subtitle</div>
+	<div>Version 0.1</div>
+
+
+
+</section>
+
+<h2>Why?</h2>
+	<p>Just Because?</p>
+	<ul>
+		<li>Just because</li>
+	</ul>
+
+
+<h2>Lorem Ipsum</h2>
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque nec nam aliquam sem et tortor consequat. Congue quisque egestas diam in arcu cursus euismod quis. Vitae auctor eu augue ut lectus. Ut porttitor leo a diam. Sit amet est placerat in egestas erat imperdiet. Tristique magna sit amet purus. Nunc scelerisque viverra mauris in. Amet cursus sit amet dictum. Id semper risus in hendrerit. Urna cursus eget nunc scelerisque viverra. Ut faucibus pulvinar elementum integer enim neque volutpat. Nunc sed blandit libero volutpat sed. Eu augue ut lectus arcu bibendum. Porttitor rhoncus dolor purus non enim praesent. Justo eget magna fermentum iaculis eu non diam phasellus vestibulum. Morbi blandit cursus risus at ultrices mi tempus. Egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam. Eget aliquet nibh praesent tristique magna sit.</p>
+
+	<p>Augue neque gravida in fermentum et sollicitudin ac orci phasellus. Nunc sed augue lacus viverra vitae congue eu consequat. Vel elit scelerisque mauris pellentesque. Interdum consectetur libero id faucibus nisl tincidunt eget. Suspendisse sed nisi lacus sed viverra tellus in hac habitasse. Faucibus et molestie ac feugiat sed lectus vestibulum mattis. Id faucibus nisl tincidunt eget nullam non nisi est. Sit amet consectetur adipiscing elit ut aliquam purus. Risus quis varius quam quisque id diam vel. Quis vel eros donec ac odio.</p>
+
+<h2>Spreadheet</h2>
+
+	<sheet id="spreadsheet" style="grid-template-columns: repeat(3, 1fr);">
+	</sheet>
+
+	<script defer>
+		const cursor = new Cursor(spreadsheet)
+
+		cursor.movement = Cursor.down
+		// cursor.classes = ['nooutline', 'nopadding']
+		cursor.add('<div style="font-weight: bold; text-align: center;">Shopping List</div>',3)
+		
+		cursor.movement = Cursor.right
+		cursor.classes.push('center')
+		cursor.add('Price')
+		cursor.add('Amount')
+		cursor.add('Item Total')
+		cursor.classes.pop()
+		
+		cursor.y++
+		cursor.x = 1
+
+		cursor.addEuro(1.54)
+		cursor.addNumber(2)
+		cursor.addEuro(3.08)
+
+		cursor.y++
+		cursor.x = 1
+
+		cursor.addEuro(3.14)
+		cursor.addNumber(1)
+		cursor.movement = Cursor.down
+		cursor.addEuro(3.14)
+
+		cursor.classes.push('sum')
+		cursor.addEuro(3.08+3.14)
+
+
+	</script>
+
+
+
+</body>
+</html>
+

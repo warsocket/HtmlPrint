@@ -1,0 +1,53 @@
+sheet{
+	display: block grid;
+}
+
+sheet > cell{
+	height: 100%;
+}
+
+
+sheet > cell.left{
+	text-align: left;
+}
+
+sheet > cell.right{
+	text-align: right;
+}
+
+sheet > cell.center{
+	text-align: center;
+}
+
+sheet > cell.nooutline{
+	outline: 0px;
+}
+sheet > cell.nopadding{
+	padding: 0ch;
+}
+
+cell{
+	display: inline-block;
+	height: fit-content;
+
+	outline: 1px solid black;
+	padding: 0.25ch;
+}
+
+.mono,.number,.euro{
+	font-family: monospace;
+}
+.isk:after{
+	content: " Ƶ";
+}
+.euro:after{
+	content: " €";
+}
+.number, .euro, .isk{
+	text-align: right;
+	font-size: 130%;
+}
+.sum:before{
+	content: "Σ ";
+	font-weight: bold;
+}
